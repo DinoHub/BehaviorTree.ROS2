@@ -180,7 +180,12 @@ inline RosTopicSubNode<T>::SubscriberInstance::SubscriberInstance(
     last_msg = msg;
     broadcaster(msg);
   };
-  subscriber = node->create_subscription<T>(topic_name, 1, callback, option);
+
+  rclcpp::QoS qos_profile(1);
+  qos_profile.best_effort();
+  qos_profile.durability_volatile();
+
+  subscriber = node->create_subscription<T>(topic_name, qos_profile, callback, option);
 }
 
 template <class T>
