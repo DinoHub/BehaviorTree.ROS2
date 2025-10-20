@@ -57,4 +57,9 @@ install(
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
 
+# Add convenience CMake functions for client packages to use
+list(APPEND ${PROJECT_NAME}_CONFIG_EXTRAS
+  cmake/plugins.cmake
+)
+
 ament_package()
