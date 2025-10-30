@@ -17,10 +17,10 @@ function(add_behavior_plugin)
         "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
     )
 
-    ament_target_dependencies(${ARG_NAME}
-        rclcpp
-        behaviortree_cpp
-        behaviortree_ros2
+    target_link_libraries(${ARG_NAME}
+        ${rclcpp_TARGETS}
+        ${behaviortree_cpp_TARGETS}
+        ${behaviortree_ros2_TARGETS}
         ${ARG_DEPENDENCIES}
     )
 
@@ -54,10 +54,10 @@ function(add_condition_plugin)
         "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
     )
 
-    ament_target_dependencies(${ARG_NAME}
-        rclcpp
-        behaviortree_cpp
-        behaviortree_ros2
+    target_link_libraries(${ARG_NAME}
+        ${rclcpp_TARGETS}
+        ${behaviortree_cpp_TARGETS}
+        ${behaviortree_ros2_TARGETS}
         ${ARG_DEPENDENCIES}
     )
 
